@@ -2,6 +2,7 @@
   "name": "cs-sim",
   "version": "0.1.0",
   "private": false,
+  "homepage": "https://sponnet.github.io/prt-sim/",
   "dependencies": {
     "bulma": "^0.7.4",
     "chart.js": "^2.8.0",

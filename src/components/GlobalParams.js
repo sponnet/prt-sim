@@ -79,7 +79,7 @@ class Me extends Component {
                     <div className="tile is-ancestor has-text-centered">
                         <div className="tile is-parent">
                         {slider("average RPM", "rpm", "rpm", 100, 8000, 100, 3500)}
-                        {slider("Track length", "Lt", "m", 10, 30, 1, 20)}
+                        {slider("Track length", "Lt", "m", 10, 30, 1, 18.48)}
                         </div>
                     </div>
                     {/* <p>General</p>
