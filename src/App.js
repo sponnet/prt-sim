@@ -6,6 +6,11 @@ import "bulma/css/bulma.css";
 import GlobalParams from "./components/GlobalParams.js";
 import ConvictionVoting from "./components/ConvictionVoting.js";
 import TimeLine from "./components/TimeLine.js";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
+const rootPath = "/";
+
+
 class App extends Component {
     constructor(props) {
         super();
@@ -23,32 +28,49 @@ class App extends Component {
         console.log("app: time changed");
     }
 
+
     render() {
 
         return (
-            <div className="App">
-             <section className="hero is-info welcome">
-                    <div className="hero-body">
-                        <div className="container">
-                            <h1 className="header-1">Powertool beltgear simulator</h1>
-                        </div>
-                    </div>
-                   
-                </section>
-                {/* <section className="info-tiles"> */}
-                    <GlobalParams
-                        globalparams={this.state.globalparams}
-                        onChange={data => {
-                            // console.log("New data", data);
-                            this.setState({ globalparams: data });
-                        }}
-                    />
-                {/* </section> */}
-                <ConvictionVoting
-                    globalparams={this.state.globalparams}
 
-                />
-                {/* <section className="info-tiles">{votes}</section> */}
+            <div className="App">
+                <BrowserRouter>
+                    <Switch>
+
+                        <Route
+                            key={rootPath}
+                            path={rootPath}
+                            exact={rootPath === "/"}
+                            render={props => (
+                                <>
+                                    <section className="hero is-info welcome">
+                                        <div className="hero-body">
+                                            <div className="container">
+                                                <h1 className="header-1">Powertool beltgear simulator</h1>
+                                            </div>
+                                        </div>
+
+                                    </section>
+                                    {/* <section className="info-tiles"> */}
+                                    <GlobalParams
+                                        globalparams={this.state.globalparams}
+                                        onChange={data => {
+                                            // console.log("New data", data);
+                                            this.setState({ globalparams: data });
+                                        }}
+                                        {...props}
+                                    />
+                                    {/* </section> */}
+                                    <ConvictionVoting
+                                        globalparams={this.state.globalparams} {...props}
+                                    />
+                                </>
+                            )}
+                        />
+
+                    </Switch>
+                </BrowserRouter>
+
             </div>
         )
     }

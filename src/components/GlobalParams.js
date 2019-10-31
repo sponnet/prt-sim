@@ -1,13 +1,20 @@
 import React, { Component } from "react";
 import "./sim.css";
+import qs from 'query-string';
 
 class Me extends Component {
     constructor(props) {
         super();
 
+        const p = qs.parse(props.location.search, { ignoreQueryPrefix: true });
+
+        // debugger;
+
+        this.history = props.history;
+
         this.state = {
-            globalparams: props.globalparams || {
-            }
+            globalparams:  p ||  {},
+            history: props.history
         };
 
         this.onChange = props.onChange;
@@ -31,13 +38,31 @@ class Me extends Component {
                 );
                 newState[paramName] = newVal / amp;
                 this.setState({ globalparams: newState }, () => {
-                    // console.log(`Emit new state`,newState);
-                    this.onChange && this.onChange(newState);
 
+                    const searchString = qs.stringify(newState);
+                    console.log(searchString);
+
+                    console.log(this.state);
+
+                    if (this.history) {
+                        // debugger;
+                        this.history.push({
+                            pathname: '/',
+                            search: "?" + searchString
+                        });
+                    }
+                    // debugger;
+
+                    //console.log(searchString);
+                    // console.log(`Emit new state`,newState);
+                    if (this.onChange) {
+                        // debugger;
+                        this.onChange(newState);
+                    }
                 });
                 return newVal;
             };
-            const currentVal = this.state.globalparams[paramName] || setVal(start/step);
+            const currentVal = this.state.globalparams[paramName] || setVal(start / step);
             return (
                 <article className="tile is-child box">
                     <p className="title">{desc} </p>
@@ -78,8 +103,8 @@ class Me extends Component {
                     <p>Motor</p>
                     <div className="tile is-ancestor has-text-centered">
                         <div className="tile is-parent">
-                        {slider("average RPM", "rpm", "rpm", 100, 8000, 100, 3500)}
-                        {slider("Track length", "Lt", "m", 10, 30, 1, 18.48)}
+                            {slider("average RPM", "rpm", "rpm", 100, 8000, 100, 3500)}
+                            {slider("Track length", "Lt", "m", 10, 30, 1, 18.48)}
                         </div>
                     </div>
                     {/* <p>General</p>

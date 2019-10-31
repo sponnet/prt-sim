@@ -3,11 +3,15 @@ import { defaults, Line } from "react-chartjs-2";
 // import convictionlib from "./convictionlib.js";
 import makerjs from "makerjs";
 import "./sim.css";
+import qs from 'query-string';
 
 class Me extends Component {
 
     constructor(props) {
         super();
+
+
+        this.history = props.history;
 
         this.state = {
             globalparams: props.globalparams,
@@ -18,6 +22,9 @@ class Me extends Component {
             timeline: undefined,
             plot: undefined,
         };
+
+// debugger;
+
     }
 
     componentWillMount() {
@@ -27,7 +34,8 @@ class Me extends Component {
 
     componentWillReceiveProps(newProps) {
         //   debugger;
-        console.log("New params", newProps.globalparams);
+        // console.log("New params", newProps.globalparams);
+        // this.history.push()
         this.setState({ globalparams: newProps.globalparams }, () => { this.recalc([]); });
         // this.recalc([]);
     }
