@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3cc4ff562aff0af8809323d984ad1442",
+    "revision": "b1d7624f480cacf0d2154e9f511f5176",
     "url": "/prt-sim/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/prt-sim/static/css/2.1ab5750d.chunk.css"
   },
   {
-    "revision": "50f0da636a31b4c6acdf",
+    "revision": "1fe5b54785502bb8abc4",
     "url": "/prt-sim/static/css/main.3a03400b.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/prt-sim/static/js/2.6baf31d6.chunk.js"
   },
   {
-    "revision": "50f0da636a31b4c6acdf",
-    "url": "/prt-sim/static/js/main.df7b1580.chunk.js"
+    "revision": "1fe5b54785502bb8abc4",
+    "url": "/prt-sim/static/js/main.05fd4c5a.chunk.js"
   },
   {
     "revision": "4d107df0a3ffd5927522",
